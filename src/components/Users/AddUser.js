@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from '../UI/Card';
 
 const AddUser = (props) => {
   const addUserHandler = (event) => {
@@ -6,15 +7,19 @@ const AddUser = (props) => {
   };
 
   return (
-  <form onSubmit={addUserHandler}>
+  <Card>
+    <form onSubmit={addUserHandler}>
 
-    <label htmlFor='username'>Uživatelské jméno</label>
-    <input id='username' type='text' />
-    <label htmlFor='age'>Věk (roky)</label>
-    <input id='age' type='number' />
-    <button type='submit'>Přidat uživatele</button>
+      <label htmlFor='username'>Uživatelské jméno</label>
+      <input id='username' type='text' />
 
-  </form>
+      <label htmlFor='age'>Věk (roky)</label>
+      <input id='age' type='number' />
+      
+      <button type='submit'>Přidat uživatele</button>
+
+    </form>
+  </Card>
   );
 };
 
