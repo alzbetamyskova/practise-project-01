@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
+import UserList from './UserList';
 
 import styles from './AddUser.module.css';
+
 
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState('');
@@ -10,7 +12,18 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    console.log(enteredUsername, enteredAge);
+
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().lenght === 0) {
+      return;
+    };
+
+    if (enteredAge < 1) {
+      return;
+    };
+
+    props.onAddUser(enteredUsername, enteredAge);
+    setEnteredUsername('');
+    setEnteredAge('');
   };
 
   const usernameChangeHandler = (event) => {
@@ -26,10 +39,20 @@ const AddUser = (props) => {
     <form onSubmit={addUserHandler}>
 
       <label htmlFor='username'>Uživatelské jméno</label>
-      <input id='username' type='text' onChange={usernameChangeHandler}/>
+      <input 
+        id='username'
+        type='text'
+        onChange={usernameChangeHandler}
+        value={enteredUsername}
+      />
 
       <label htmlFor='age'>Věk (roky)</label>
-      <input id='age' type='number' onChange={ageChangeHandler}/>
+      <input
+        id='age'
+        type='number'
+        onChange={ageChangeHandler}
+        value={enteredAge}
+      />
 
       <Button type='submit'>Přidat uživatele</Button>
 
