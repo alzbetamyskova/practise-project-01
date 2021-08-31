@@ -4,6 +4,7 @@ import Button from '../UI/Button';
 import Error from '../UI/Error';
 
 import styles from './AddUser.module.css';
+import Wrapper from '../Helpers/Wrapper';
 
 
 const AddUser = (props) => {
@@ -48,7 +49,7 @@ const AddUser = (props) => {
   };
 
   return (
-    <>
+    <Wrapper >
       {error && <Error title={error.title} message={error.message} onErrorHandler={errorHandler}/>}
       <Card className={styles.input}>
         <form onSubmit={addUserHandler}>
@@ -73,7 +74,7 @@ const AddUser = (props) => {
 
         </form>
       </Card>
-    </>
+    </Wrapper>
   );
 };
 
