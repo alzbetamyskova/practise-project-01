@@ -1,5 +1,8 @@
 import React from 'react';
 import Card from '../UI/Card';
+import Button from '../UI/Button';
+
+import styles from './AddUser.module.css';
 
 const AddUser = (props) => {
   const addUserHandler = (event) => {
@@ -7,7 +10,7 @@ const AddUser = (props) => {
   };
 
   return (
-  <Card>
+  <Card className={styles.input}>
     <form onSubmit={addUserHandler}>
 
       <label htmlFor='username'>Uživatelské jméno</label>
@@ -15,8 +18,8 @@ const AddUser = (props) => {
 
       <label htmlFor='age'>Věk (roky)</label>
       <input id='age' type='number' />
-      
-      <button type='submit'>Přidat uživatele</button>
+
+      <Button type='submit'>Přidat uživatele</Button>
 
     </form>
   </Card>
